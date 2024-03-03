@@ -11,6 +11,7 @@
   --font-color: #4f4e50;
   --grey-color: rgb(137, 137, 137);
   --service-background: rgb(238, 238, 238);
+  --link: #3869cc;
 }
 
 body {
@@ -23,22 +24,11 @@ body {
 }
 
 .main-section {
-  background-image: url(../assets/background-0.jpg);
-  /* background-image: url(../assets/background-24-3.jpg); */
+  background-image: url(../assets/background-24-3.jpg);
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center center;
   height: 100vh;
-}
-
-.header-section,
-.navigation-list,
-.inscription-section,
-.designing-section,
-.section-construction,
-.our-services {
-  display: none;
-  /* positions above should be removed */
 }
 
 .header-section {
@@ -83,7 +73,7 @@ body {
 .designing-section {
   color: var(--popup-font-color);
   background-color: var(--dark-color);
-  height: 100vh;
+  min-height: 100vh;
 }
 
 .designing-article {
@@ -115,7 +105,7 @@ body {
 
 /* Construction section */
 .section-construction {
-  height: 100vh;
+  min-height: 100vh;
 }
 
 .h6-slider-construction {
@@ -278,6 +268,32 @@ body {
 .our-services {
   border-top: 2px outset var(--grey-color);
   margin: 3vh 2vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.h4-services {
+  text-align: center;
+  margin-top: 1rem;
+  font-size: 2.5rem;
+  text-transform: uppercase;
+}
+
+.h5-services {
+  text-align: center;
+  font-weight: 600;
+  padding: 0.8rem 0.5rem 0.3rem 0.5rem;
+}
+
+.p-services {
+  text-align: center;
+  max-width: 60vw;
+}
+
+.br-container {
+  display: block;
+  margin-bottom: 0.7rem;
 }
 
 .row-services {
@@ -286,14 +302,10 @@ body {
 }
 
 .service-article {
-  display: flex;
-  flex-direction: column;
-  /* justify-content: space-between; */
-  /* text-align: center; */
   max-width: 17vw;
-  /* max-height: 20vw; */
   background-color: var(--service-background);
-  margin: 2vw 1vw;
+  margin: 1.2vw 1vw;
+  height: auto;
 }
 
 .service-img {
@@ -302,14 +314,66 @@ body {
 }
 
 .service-inscription {
-  /* font-size: 1.4rem; */
   font-size: 0.9rem;
   font-weight: 600;
-  padding: 1rem 0.5rem 0.5rem 0.5rem;
+  padding: 0.5rem;
 }
 
 .p-service {
-  /* color: var(--grey-color); */
-  padding: 0 0.5rem 0.5rem 0.5rem;
+  padding: 0 0.5rem 0.2rem 0.5rem;
   font-size: 0.9rem;
+}
+
+.expand-link {
+  display: block;
+  color: var(--link);
+  cursor: pointer;
+  padding: 0 0.5rem 0.5rem 0.5rem;
+}
+
+/* my modal*/
+#myModal {
+  display: none;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background-color: var(--popup-background-color);
+  top: 0;
+  left: 0;
+  overflow-y: auto;
+  overflow-x: hidden;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  visibility: hidden;
+  /* transition: opacity 0.5s ease, visibility 0.5s ease; */
+  transition: opacity 0.5s ease;
+}
+
+.modal-box {
+  max-width: 25vw;
+  overflow-y: auto;
+  text-align: start;
+  background-color: var(--service-background);
+}
+
+.container-close {
+  text-align: center;
+  padding: 1rem 0;
+}
+
+.modal-close {
+  cursor: pointer;
+  padding: 0.5rem;
+  color: var(--popup-font-color);
+  background-color: var(--grey-color);
+}
+
+.modal-inscription {
+  font-weight: 600;
+  padding: 1rem 1rem 0.5rem 1rem;
+}
+
+.p-modal {
+  padding: 0 1rem 0.5rem 1rem;
 }
