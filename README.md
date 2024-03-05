@@ -4,7 +4,7 @@
 
 <p>This site is currently under development<p/>
 
-<p>Link: https://mykolakoretskyi.github.io/Video-slider/<p/>
+<p>Link: https://mykolakoretskyi.github.io/Construction-company-site/<p/>
 
 <!--<h3>Screenshots</h3>-->
 

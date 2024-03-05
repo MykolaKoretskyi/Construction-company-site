@@ -26,7 +26,7 @@ function openModal(imgSrc, title, content) {
   modalContent.querySelector(".modal-inscription").textContent = title;
   modalContent.querySelector(".p-modal").innerHTML = content;
   modal.style.display = "flex";
-  // Затримка для забезпечення плавного відображення
+  document.body.style.overflow = "hidden";
   setTimeout(() => {
     modal.style.opacity = 1;
     modal.style.visibility = "visible";
@@ -40,13 +40,12 @@ function openModal(imgSrc, title, content) {
 }
 
 function closeModal(modal) {
-  // const modal = document.getElementById("myModal");
   modal.style.opacity = 0;
 
-  // Затримка для забезпечення плавного ховання
   setTimeout(() => {
     modal.style.visibility = "hidden";
-  }, 500);
+  }, 300);
+  document.body.style.overflow = "auto";
 }
 
 // Closes the popup when pressing "Esc" on the keyboard.

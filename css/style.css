@@ -17,6 +17,7 @@
 body {
   color: var(--font-color);
   font-family: "Montserrat", sans-serif;
+  /* font-size: 1rem; */
   color: var(--font-color);
   font-style: normal;
   font-weight: 400;
@@ -51,7 +52,7 @@ body {
 }
 
 .inscription-section {
-  padding: 10vh 2vw 3vh 2vw;
+  padding: 12vh 2vw 3vh 2vw;
   text-align: center;
 }
 
@@ -63,7 +64,7 @@ body {
 }
 
 .inscription {
-  padding-top: 1rem;
+  padding-top: 5vh;
   font-size: 1.5rem;
   line-height: 1.5;
   color: var(--grey-color);
@@ -83,13 +84,14 @@ body {
 }
 
 .designing-inscription {
-  padding: 3rem;
+  /* padding: 3rem; */
+  padding: 5vh 2vw;
 }
 
 .h4-designing {
   font-size: 2.5rem;
   text-transform: uppercase;
-  padding-bottom: 1rem;
+  padding-bottom: 3vh;
 }
 
 .h5-designing {
@@ -99,8 +101,8 @@ body {
 
 .designing-img {
   max-height: 50vh;
-  max-width: 50%;
-  padding: 3rem 3rem 3rem 0;
+  max-width: 45%;
+  padding: 5vh 3vw 5vh 0;
 }
 
 /* Construction section */
@@ -111,11 +113,13 @@ body {
 .h6-slider-construction {
   color: var(--font-color);
 }
-
+.img-media-mini {
+  display: none;
+}
 .construction-img {
   max-height: 50vh;
   max-width: 50%;
-  padding: 3rem 0 3rem 3rem;
+  padding: 5vh 0 3vw 5vh;
 }
 
 /* Styles for video sliders */
@@ -155,7 +159,7 @@ body {
   left: 0;
   opacity: 0;
   visibility: hidden;
-  overflow-y: auto;
+  overflow-y: hidden;
   overflow-x: hidden;
   transition: all 0.8s ease 0s;
   z-index: 2;
@@ -184,9 +188,8 @@ body {
 .popup-content {
   background-color: var(--popup-content-color);
   color: var(--popup-font-color);
-  width: 74vw;
-  min-width: 74vh;
-  height: 74vh;
+  max-width: 74vw;
+  max-height: 74vh;
   padding: 3vh;
   position: relative;
   z-index: 2;
@@ -267,7 +270,7 @@ body {
 /* Our services */
 .our-services {
   border-top: 2px outset var(--grey-color);
-  margin: 3vh 2vw;
+  margin: 3vh 3vw;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -275,7 +278,7 @@ body {
 
 .h4-services {
   text-align: center;
-  margin-top: 1rem;
+  margin-top: 3vh;
   font-size: 2.5rem;
   text-transform: uppercase;
 }
@@ -288,17 +291,18 @@ body {
 
 .p-services {
   text-align: center;
-  max-width: 60vw;
+  max-width: 72vw;
+  padding: 0 0.5vw 0.5vh 0.5vw;
 }
 
 .br-container {
   display: block;
-  margin-bottom: 0.7rem;
+  margin: 0.7rem;
 }
 
 .row-services {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
 }
 
 .service-article {
@@ -306,6 +310,7 @@ body {
   background-color: var(--service-background);
   margin: 1.2vw 1vw;
   height: auto;
+  font-size: 0.9rem;
 }
 
 .service-img {
@@ -314,21 +319,17 @@ body {
 }
 
 .service-inscription {
-  font-size: 0.9rem;
+  /* font-size: inherit; */
   font-weight: 600;
-  padding: 0.5rem;
-}
-
-.p-service {
-  padding: 0 0.5rem 0.2rem 0.5rem;
-  font-size: 0.9rem;
+  padding: 0.7rem;
 }
 
 .expand-link {
   display: block;
   color: var(--link);
   cursor: pointer;
-  padding: 0 0.5rem 0.5rem 0.5rem;
+  /* padding: 0 0.5rem 0.5rem 0.5rem; */
+  margin: 0.7rem;
 }
 
 /* my modal*/
@@ -347,7 +348,7 @@ body {
   opacity: 0;
   visibility: hidden;
   /* transition: opacity 0.5s ease, visibility 0.5s ease; */
-  transition: opacity 0.5s ease;
+  transition: opacity 0.3s ease;
 }
 
 .modal-box {
@@ -376,4 +377,114 @@ body {
 
 .p-modal {
   padding: 0 1rem 0.5rem 1rem;
+}
+
+@media screen and (max-width: 1280px) {
+  body {
+    font-size: 0.7rem;
+  }
+  .header-section {
+    font-size: 0.9rem;
+  }
+  .main-inscription {
+    font-size: 1.8rem;
+  }
+  .inscription,
+  .h6-slider {
+    font-size: 1.2rem;
+  }
+  .service-article {
+    max-width: 21vw;
+  }
+  .h5-services,
+  .p-services {
+    font-size: 0.8rem;
+  }
+  .service-inscription,
+  .br-container,
+  .expand-link {
+    font-size: 0.7rem;
+  }
+  .h4-services,
+  .h4-designing {
+    font-size: 1.6rem;
+  }
+  .modal-box {
+    max-width: 35vw;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .main-section {
+    background-position: center;
+    text-align: center;
+    align-items: center;
+  }
+
+  .p-services {
+    max-width: 84vw;
+  }
+  .modal-box {
+    max-width: 45vw;
+  }
+}
+
+@media screen and (max-width: 914px) {
+  body {
+    font-size: 0.9rem;
+  }
+  .designing-article {
+    flex-direction: column;
+  }
+  .designing-inscription {
+    padding: 4vh 3vw;
+  }
+  .service-article {
+    max-width: 30vw;
+  }
+  .designing-img {
+    max-height: 120vh;
+    max-width: 85%;
+    padding: 4vh 3vw;
+  }
+  .construction-img {
+    display: none;
+  }
+  .img-media-mini {
+    display: block;
+    max-height: 120vh;
+    max-width: 85%;
+    padding: 4vh 3vw;
+  }
+  .modal-box {
+    max-width: 65vw;
+  }
+  .popup-content {
+    max-width: 84vw;
+    max-height: 84vh;
+    padding: 2vh;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .service-article {
+    max-width: 45vw;
+  }
+  .modal-box {
+    max-width: 75vw;
+  }
+  .popup-content {
+    max-width: 90vw;
+    max-height: 90vh;
+    padding: 2vh;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .service-article {
+    max-width: 95vw;
+  }
+  .modal-box {
+    max-width: 87vw;
+  }
 }

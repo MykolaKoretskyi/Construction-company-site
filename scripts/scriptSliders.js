@@ -30,11 +30,53 @@ const secondIdArray = [
 
 // Gets the slider element by its id.
 const secondSlider = document.getElementById("secondSlider");
+const widthScreen = window.innerWidth;
+let numbLinkVideoInRow = 4;
+
+const cachedThumbnails =
+  JSON.parse(localStorage.getItem("vimeoThumbnails")) || {};
 
 document.addEventListener("DOMContentLoaded", function () {
+  numbLinkVideoInRow = getNumberLinkVideoInRow();
   createSliderLinks(firstIdArray, firstSlider);
   createSliderLinks(secondIdArray, secondSlider);
 });
+
+function getNumberLinkVideoInRow() {
+  if (widthScreen <= 480) {
+    return 1;
+  } else if (widthScreen <= 914) {
+    return 2;
+  } else if (widthScreen < 1280) {
+    return 3;
+  }
+  return 4;
+}
+
+window.addEventListener("resize", function () {
+  const newScreenWidth = window.innerWidth;
+
+  if (newScreenWidth <= 480) {
+    numbLinkVideoInRow = 1;
+  } else if (newScreenWidth <= 914) {
+    numbLinkVideoInRow = 2;
+  } else if (newScreenWidth < 1280) {
+    numbLinkVideoInRow = 3;
+  } else {
+    numbLinkVideoInRow = 4;
+  }
+  clearSlider(firstSlider);
+  clearSlider(secondSlider);
+
+  createSliderLinks(firstIdArray, firstSlider);
+  createSliderLinks(secondIdArray, secondSlider);
+});
+
+function clearSlider(sliderContainer) {
+  while (sliderContainer.firstChild) {
+    sliderContainer.removeChild(sliderContainer.firstChild);
+  }
+}
 
 async function createSliderLinks(idArray, sliderLine) {
   for (let index = 0; index < idArray.length; index++) {
@@ -44,11 +86,21 @@ async function createSliderLinks(idArray, sliderLine) {
   }
 
   async function getVimeoThumbnailAsync(videoId) {
-    return new Promise((resolve) => {
-      getVimeoThumbnail(videoId, function (thumbnailUrl) {
-        resolve(thumbnailUrl);
+    const cachedThumbnail = cachedThumbnails[videoId];
+    if (cachedThumbnail) {
+      return cachedThumbnail;
+    } else {
+      const thumbnailUrl = await new Promise((resolve) => {
+        getVimeoThumbnail(videoId, function (thumbnailUrl) {
+          resolve(thumbnailUrl);
+        });
       });
-    });
+
+      cachedThumbnails[videoId] = thumbnailUrl;
+      localStorage.setItem("vimeoThumbnails", JSON.stringify(cachedThumbnails));
+
+      return thumbnailUrl;
+    }
   }
 
   function createLink(thumbnailUrl, index) {
@@ -65,9 +117,12 @@ async function createSliderLinks(idArray, sliderLine) {
     newImage.alt = "image";
 
     newImage.style.margin = "1vw";
-    newImage.style.width = document.documentElement.scrollWidth * 0.23 + "px";
+    newImage.style.width =
+      document.documentElement.scrollWidth * (1 / numbLinkVideoInRow - 0.02) +
+      "px";
     newImage.style.maxHeight =
-      document.documentElement.scrollWidth * 0.23 + "px";
+      document.documentElement.scrollWidth * (1 / numbLinkVideoInRow - 0.02) +
+      "px";
 
     newImage.setAttribute("dataVideoId", idArray[index]);
     newImage.setAttribute("dataIndex", index);
@@ -151,6 +206,7 @@ function closePopup(closeElement) {
   iframeElements.forEach(function (iframeElement) {
     iframeElement.src = "";
   });
+  document.body.style.overflow = "auto";
   closeElement.closest(".pop-up").classList.remove("open");
 }
 
@@ -158,6 +214,7 @@ function closePopup(closeElement) {
 // if clicked outside the popup then closes the popup.
 function popupOpen(curentPopup) {
   if (curentPopup) {
+    document.body.style.overflow = "hidden";
     curentPopup.classList.add("open");
     curentPopup.addEventListener("click", function (event) {
       if (!event.target.closest(".popup-content")) {
@@ -235,7 +292,7 @@ document.querySelectorAll(".next").forEach(function (nextButton) {
 
 // Scrolls through the slides.
 function scrollSlider(direction, clickedElement) {
-  let scrollAmount = window.innerWidth * 0.25;
+  let scrollAmount = window.innerWidth / numbLinkVideoInRow;
   let thisSlider = clickedElement.parentNode.querySelector(".slider");
   thisSlider.scrollTo({
     left: thisSlider.scrollLeft + direction * scrollAmount,
