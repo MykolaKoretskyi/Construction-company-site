@@ -381,7 +381,9 @@ body {
   color: #6f7d8e;
 }
 
-.contacts-article {
+.contacts-article,
+.clients-article {
+  min-width: 30%;
 }
 
 .h4-contacts {
@@ -438,12 +440,16 @@ body {
 
 .mail-input {
   width: 100%;
+  display: flex;
+  flex-direction: column;
+  margin-right: 1rem;
 }
 
 .label-input {
   display: flex;
   flex-direction: column;
   margin-right: 1rem;
+  width: 48%;
 }
 .client-contact {
   display: flex;
@@ -567,6 +573,11 @@ body {
     max-width: 90vw;
     max-height: 90vh;
     padding: 2vh;
+  }
+  .contacts-section {
+    padding: 5%;
+    flex-direction: column;
+    vertical-align: middle;
   }
 }
 
