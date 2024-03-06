@@ -118,10 +118,14 @@ async function createSliderLinks(idArray, sliderLine) {
 
     newImage.style.margin = "1vw";
     newImage.style.width =
-      document.documentElement.scrollWidth * (1 / numbLinkVideoInRow - 0.02) +
+      document.documentElement.scrollWidth *
+        0.98 *
+        (1 / numbLinkVideoInRow - 0.02) +
       "px";
     newImage.style.maxHeight =
-      document.documentElement.scrollWidth * (1 / numbLinkVideoInRow - 0.02) +
+      document.documentElement.scrollWidth *
+        0.98 *
+        (1 / numbLinkVideoInRow - 0.02) +
       "px";
 
     newImage.setAttribute("dataVideoId", idArray[index]);
@@ -292,7 +296,9 @@ document.querySelectorAll(".next").forEach(function (nextButton) {
 
 // Scrolls through the slides.
 function scrollSlider(direction, clickedElement) {
-  let scrollAmount = window.innerWidth / numbLinkVideoInRow;
+  // let scrollAmount = window.innerWidth / numbLinkVideoInRow;
+  let scrollAmount =
+    document.documentElement.scrollWidth * 0.99 * (1 / numbLinkVideoInRow);
   let thisSlider = clickedElement.parentNode.querySelector(".slider");
   thisSlider.scrollTo({
     left: thisSlider.scrollLeft + direction * scrollAmount,

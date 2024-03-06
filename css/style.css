@@ -5,7 +5,7 @@
   --brand-color: #212122;
   --popup-font-color: #e7e6e6;
   --pigination-activ-color: #3e3e3e;
-  --nex-prev-color: #6a6274;
+  --nex-prev-color: #a0a4a1;
   --popup-background-color: rgba(0, 0, 0, 0.8);
   --popup-content-color: black;
   --font-color: #4f4e50;
@@ -17,7 +17,6 @@
 body {
   color: var(--font-color);
   font-family: "Montserrat", sans-serif;
-  /* font-size: 1rem; */
   color: var(--font-color);
   font-style: normal;
   font-weight: 400;
@@ -84,7 +83,6 @@ body {
 }
 
 .designing-inscription {
-  /* padding: 3rem; */
   padding: 5vh 2vw;
 }
 
@@ -132,7 +130,7 @@ body {
 .slider-container {
   display: flex;
   overflow-x: auto;
-  padding-top: 2vh;
+  padding: 2vh 1%;
   align-items: center;
   position: relative;
 }
@@ -227,7 +225,7 @@ body {
   transform: translateY(-50%);
   font-size: 6vw;
   cursor: pointer;
-  color: var(--nex-prev-color);
+  color: var(--popup-font-color);
   z-index: 1;
   transition: transform 0.3s ease, top 0.3s ease, color 0.3s ease;
 }
@@ -236,15 +234,15 @@ body {
 .next:hover {
   transform: scale(1.1) translateY(-50%);
   top: 57%;
-  color: var(--font-color);
+  color: var(--nex-prev-color);
 }
 
 .prev {
-  left: 1rem;
+  left: 2vw;
 }
 
 .next {
-  right: 1rem;
+  right: 2vw;
 }
 
 .pagination {
@@ -319,7 +317,6 @@ body {
 }
 
 .service-inscription {
-  /* font-size: inherit; */
   font-weight: 600;
   padding: 0.7rem;
 }
@@ -328,7 +325,6 @@ body {
   display: block;
   color: var(--link);
   cursor: pointer;
-  /* padding: 0 0.5rem 0.5rem 0.5rem; */
   margin: 0.7rem;
 }
 
@@ -347,7 +343,6 @@ body {
   justify-content: center;
   opacity: 0;
   visibility: hidden;
-  /* transition: opacity 0.5s ease, visibility 0.5s ease; */
   transition: opacity 0.3s ease;
 }
 
@@ -377,6 +372,102 @@ body {
 
 .p-modal {
   padding: 0 1rem 0.5rem 1rem;
+}
+
+.contacts-section {
+  margin: 3%;
+  display: flex;
+  justify-content: space-evenly;
+  color: #6f7d8e;
+}
+
+.contacts-article {
+}
+
+.h4-contacts {
+  margin: 3vh 0;
+  font-size: 2.5rem;
+  text-transform: uppercase;
+}
+
+.span-contact {
+  display: flex;
+}
+
+.contacts-developer {
+  margin: 3vh 2vw;
+  font-size: 0.9rem;
+}
+
+.div-contacts {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.icon {
+  width: 5rem;
+  height: 5rem;
+  margin-right: 4%;
+}
+
+.clients-article {
+  margin: 3vh 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.client-name {
+  display: inline-block;
+  padding-bottom: 2rem;
+  margin: 3vh 0;
+  border-bottom: 1px outset var(--grey-color);
+  width: 8vw;
+}
+
+.client-input {
+  border: none;
+  border-bottom: 1px outset var(--grey-color);
+  height: 2rem;
+}
+
+.client-input:focus {
+  outline: none;
+  box-shadow: 0 0 5px var(--grey-color);
+}
+
+.mail-input {
+  width: 100%;
+}
+
+.label-input {
+  display: flex;
+  flex-direction: column;
+  margin-right: 1rem;
+}
+.client-contact {
+  display: flex;
+  flex-direction: row;
+  margin-top: 8%;
+}
+
+.span-button {
+  text-align: center;
+}
+
+.client-button {
+  margin-top: 10%;
+  padding: 0.6rem;
+  width: 100%;
+  color: var(--popup-font-color);
+  border: none;
+  background-color: var(--grey-color);
+  font-size: 1rem;
+}
+
+.client-button:hover {
+  cursor: pointer;
+  box-shadow: 0 0 5px var(--grey-color);
 }
 
 @media screen and (max-width: 1280px) {
@@ -420,7 +511,6 @@ body {
     text-align: center;
     align-items: center;
   }
-
   .p-services {
     max-width: 84vw;
   }
