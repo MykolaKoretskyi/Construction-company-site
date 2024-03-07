@@ -1,60 +1,60 @@
 const designingSrcArray = [
-  "./assets/services/designing-1.jpg",
-  "./assets/services/designing-2.jpg",
-  "./assets/services/designing-3.jpg",
-  "./assets/services/designing-4.jpg",
-  "./assets/services/designing-5.jpg",
-  "./assets/services/designing-6.jpg",
-  "./assets/services/designing-7.jpg",
-  "./assets/services/designing-8.jpg",
+  "./assets/services/min-designing-1.jpg",
+  "./assets/services/min-designing-2.jpg",
+  "./assets/services/min-designing-3.jpg",
+  "./assets/services/min-designing-4.jpg",
+  "./assets/services/min-designing-5.jpg",
+  "./assets/services/min-designing-6.jpg",
+  "./assets/services/min-designing-7.jpg",
+  "./assets/services/min-designing-8.jpg",
 ];
 
 const constructionSrcArray = [
-  "./assets/services/construction-1.jpg",
-  "./assets/services/construction-2.jpg",
-  "./assets/services/construction-3.jpg",
-  "./assets/services/construction-4.jpg",
-  "./assets/services/construction-5.jpg",
-  "./assets/services/construction-6.jpg",
-  "./assets/services/construction-7.jpg",
-  "./assets/services/construction-8.jpg",
-  "./assets/services/construction-9.jpg",
-  "./assets/services/construction-10.jpg",
+  "./assets/services/min-construction-1.jpg",
+  "./assets/services/min-construction-2.jpg",
+  "./assets/services/min-construction-3.jpg",
+  "./assets/services/min-construction-4.jpg",
+  "./assets/services/min-construction-5.jpg",
+  "./assets/services/min-construction-6.jpg",
+  "./assets/services/min-construction-7.jpg",
+  "./assets/services/min-construction-8.jpg",
+  "./assets/services/min-construction-9.jpg",
+  "./assets/services/min-construction-10.jpg",
 ];
 
 const interiorSrcArray = [
-  "./assets/services/interior-1.jpg",
-  "./assets/services/interior-2.jpg",
-  "./assets/services/interior-3.jpg",
-  "./assets/services/interior-4.jpg",
-  "./assets/services/interior-5.jpg",
-  "./assets/services/interior-6.jpg",
-  "./assets/services/interior-7.jpg",
-  "./assets/services/interior-8.jpg",
-  "./assets/services/interior-9.jpg",
+  "./assets/services/min-interior-1.jpg",
+  "./assets/services/min-interior-2.jpg",
+  "./assets/services/min-interior-3.jpg",
+  "./assets/services/min-interior-4.jpg",
+  "./assets/services/min-interior-5.jpg",
+  "./assets/services/min-interior-6.jpg",
+  "./assets/services/min-interior-7.jpg",
+  "./assets/services/min-interior-8.jpg",
+  "./assets/services/min-interior-9.jpg",
 ];
 
 const networksSrcArray = [
-  "./assets/services/networks-1.jpg",
-  "./assets/services/networks-2.jpg",
-  "./assets/services/networks-3.jpg",
-  "./assets/services/networks-4.jpg",
-  "./assets/services/networks-5.jpg",
-  "./assets/services/networks-6.jpg",
-  "./assets/services/networks-7.jpg",
-  "./assets/services/networks-8.jpg",
+  "./assets/services/min-networks-1.jpg",
+  "./assets/services/min-networks-2.jpg",
+  "./assets/services/min-networks-3.jpg",
+  "./assets/services/min-networks-4.jpg",
+  "./assets/services/min-networks-5.jpg",
+  "./assets/services/min-networks-6.jpg",
+  "./assets/services/min-networks-7.jpg",
+  "./assets/services/min-networks-8.jpg",
 ];
 
 const landscapeSrcArray = [
-  "./assets/services/landscape-1.jpg",
-  "./assets/services/landscape-2.jpg",
-  "./assets/services/landscape-3.jpg",
-  "./assets/services/landscape-4.jpg",
-  "./assets/services/landscape-5.jpg",
-  "./assets/services/landscape-6.jpg",
-  "./assets/services/landscape-7.jpg",
-  "./assets/services/landscape-8.jpg",
-  "./assets/services/landscape-9.jpg",
+  "./assets/services/min-landscape-1.jpg",
+  "./assets/services/min-landscape-2.jpg",
+  "./assets/services/min-landscape-3.jpg",
+  "./assets/services/min-landscape-4.jpg",
+  "./assets/services/min-landscape-5.jpg",
+  "./assets/services/min-landscape-6.jpg",
+  "./assets/services/min-landscape-7.jpg",
+  "./assets/services/min-landscape-8.jpg",
+  "./assets/services/min-landscape-9.jpg",
 ];
 // Gets the slider element by its id.
 const designingSlider = document.getElementById("designingSlider");
@@ -172,8 +172,9 @@ function setListenerPopup(popupLink) {
 
     let dots = document.querySelectorAll(".dot");
     dots[clickedElement.getAttribute("dataIndex")].classList.add("active");
-    document.querySelector(".imgPopup").src =
-      clickedElement.getAttribute("src");
+    document.querySelector(".imgPopup").src = clickedElement
+      .getAttribute("src")
+      .replace("min-", "");
 
     popupOpen(currentPopup);
     event.preventDefault();

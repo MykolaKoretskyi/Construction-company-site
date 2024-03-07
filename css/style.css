@@ -188,7 +188,7 @@ body {
   background-color: var(--popup-content-color);
   color: var(--popup-font-color);
   max-width: 74vw;
-  max-height: 74vh;
+  height: 74vh;
   padding: 3vh;
   position: relative;
   z-index: 2;
@@ -211,7 +211,7 @@ body {
 
 .iframe {
   width: 72vw;
-  height: 70 vh;
+  height: 64vh;
   margin: 3%;
 }
 
