@@ -79,6 +79,7 @@ function clearSlider(sliderContainer) {
 }
 
 async function createSliderLinks(idArray, sliderLine) {
+  const scrollWidth = document.documentElement.scrollWidth;
   for (let index = 0; index < idArray.length; index++) {
     const videoId = idArray[index];
     const thumbnailUrl = await getVimeoThumbnailAsync(videoId);
@@ -118,15 +119,9 @@ async function createSliderLinks(idArray, sliderLine) {
 
     newImage.style.margin = "1vw";
     newImage.style.width =
-      document.documentElement.scrollWidth *
-        0.98 *
-        (1 / numbLinkVideoInRow - 0.02) +
-      "px";
+      scrollWidth * 0.98 * (1 / numbLinkVideoInRow - 0.02) + "px";
     newImage.style.maxHeight =
-      document.documentElement.scrollWidth *
-        0.98 *
-        (1 / numbLinkVideoInRow - 0.02) +
-      "px";
+      scrollWidth * 0.98 * (1 / numbLinkVideoInRow - 0.02) + "px";
 
     newImage.setAttribute("dataVideoId", idArray[index]);
     newImage.setAttribute("dataIndex", index);

@@ -1,0 +1,252 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800&display=swap");
+
+:root {
+  --dark-color: #1e1f21;
+  --brand-color: #212122;
+  --popup-font-color: #e7e6e6;
+  --pigination-activ-color: #3e3e3e;
+  --nex-prev-color: #a0a4a1;
+  --popup-background-color: rgba(0, 0, 0, 0.8);
+  --popup-content-color: black;
+  --font-color: #4f4e50;
+  --grey-color: rgb(137, 137, 137);
+  --service-background: rgb(238, 238, 238);
+  --link: #3869cc;
+}
+
+body {
+  color: var(--font-color);
+  font-family: "Montserrat", sans-serif;
+  color: var(--font-color);
+  font-style: normal;
+  font-weight: 400;
+  line-height: 1.2;
+}
+
+/* .main-section {
+  
+} */
+
+.box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 6vh;
+}
+
+.header-section {
+  display: flex;
+  justify-content: space-between;
+  padding: 2vh 5%;
+}
+
+.nav-item {
+  text-decoration: none;
+  padding: 0 1rem;
+  color: var(--font-color);
+  text-transform: uppercase;
+}
+
+.h4-service {
+  font-size: 2.5rem;
+  text-transform: uppercase;
+  padding-bottom: 3vh;
+}
+
+.h5-service {
+  font-size: 1.2rem;
+  font-weight: 600;
+  padding: 0.8rem 0.5rem 0.3rem 0.5rem;
+}
+
+.p-service {
+  max-width: 64vw;
+  text-align: center;
+  padding: 1vh 3% 3vh;
+}
+
+/* Styles for foto sliders */
+.section-slider {
+}
+
+.h6-slider {
+  text-align: center;
+  font-size: 1.2rem;
+  font-weight: 600;
+  padding: 3vh 2vw;
+}
+
+.slider-container {
+  background-color: var(--service-background);
+  display: flex;
+  overflow-x: auto;
+  padding: 2vh 1%;
+  margin-bottom: 5vh;
+  align-items: center;
+  justify-content: flex-start;
+  position: relative;
+  max-width: 98%;
+}
+
+.slider {
+  display: flex;
+  margin: 0;
+  padding: 0;
+  /* overflow-x: scroll; */
+  overflow-x: hidden;
+  transition: transform 0.3s ease;
+}
+
+.slide {
+  margin: 0;
+  padding: 0;
+}
+
+.pop-up {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background-color: var(--popup-background-color);
+  top: 0;
+  left: 0;
+  opacity: 0;
+  visibility: hidden;
+  overflow-y: hidden;
+  overflow-x: hidden;
+  transition: all 0.8s ease 0s;
+  z-index: 2;
+}
+
+.pop-up.open {
+  opacity: 1;
+  visibility: visible;
+}
+
+.pop-up.open,
+.popup-content {
+  transform: translate(0px, 0px);
+  opacity: 1;
+}
+
+.popup-body {
+  min-height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 5vh 3vw;
+  z-index: 3;
+}
+
+.popup-content {
+  background-color: var(--popup-content-color);
+  color: var(--popup-font-color);
+  max-width: 74vw;
+  max-height: 74vh;
+  padding: 5vh 3vw;
+  position: relative;
+  z-index: 2;
+}
+
+.popup-close {
+  color: var(--popup-font-color);
+  position: absolute;
+  right: 0.5rem;
+  top: 0.1rem;
+  font-size: 2rem;
+  text-decoration: none;
+}
+
+.popup-video {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.imgPopup {
+  max-width: 72vw;
+  max-height: 64vh;
+}
+
+.prev,
+.next {
+  position: absolute;
+  top: 55%;
+  transform: translateY(-50%);
+  font-size: 6vw;
+  cursor: pointer;
+  color: var(--nex-prev-color);
+  z-index: 1;
+  transition: transform 0.3s ease, top 0.3s ease, color 0.3s ease;
+}
+
+.prev:hover,
+.next:hover {
+  transform: scale(1.1) translateY(-50%);
+  top: 57%;
+  color: var(--grey-color);
+}
+
+.prev {
+  left: 2vw;
+}
+
+.next {
+  right: 2vw;
+}
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  margin-top: 2vh;
+}
+
+.dot {
+  width: 0.5rem;
+  height: 0.5rem;
+  margin: 0 0.4rem;
+  background-color: var(--popup-font-color);
+  border-radius: 50%;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.dot.active {
+  background-color: var(--pigination-activ-color);
+}
+
+@media screen and (max-width: 1280px) {
+  .popup-content {
+    padding: 5vh;
+  }
+}
+
+@media screen and (max-width: 914px) {
+  body {
+    font-size: 0.9rem;
+  }
+
+  .popup-content {
+    max-width: 80vw;
+    max-height: 80vh;
+    padding: 6vh;
+  }
+  .prev,
+  .next {
+    font-size: 10vw;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .popup-content {
+    max-width: 90vw;
+    max-height: 90vh;
+    padding: 6vh;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .prev,
+  .next {
+    font-size: 20vw;
+  }
+}

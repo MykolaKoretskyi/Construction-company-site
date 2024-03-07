@@ -44,11 +44,11 @@ body {
   text-transform: uppercase;
 }
 
-.nav-button {
+/* .nav-button {
   padding: 0.5rem;
   color: var(--popup-font-color);
   background-color: var(--grey-color);
-}
+} */
 
 .inscription-section {
   padding: 12vh 2vw 3vh 2vw;
@@ -139,8 +139,9 @@ body {
   display: flex;
   margin: 0;
   padding: 0;
-  overflow-x: scroll;
+  /* overflow-x: scroll; */
   overflow-x: hidden;
+  transition: transform 0.3s ease;
 }
 
 .slide {
@@ -209,13 +210,9 @@ body {
 }
 
 .iframe {
-  width: 70vw;
-  height: 70vh;
-}
-
-.slider {
-  display: flex;
-  transition: transform 0.5s ease;
+  width: 72vw;
+  height: 70 vh;
+  margin: 3%;
 }
 
 .prev,
@@ -480,7 +477,8 @@ body {
   body {
     font-size: 0.7rem;
   }
-  .header-section {
+  .header-section,
+  .client-button {
     font-size: 0.9rem;
   }
   .main-inscription {
@@ -499,11 +497,13 @@ body {
   }
   .service-inscription,
   .br-container,
-  .expand-link {
+  .expand-link,
+  .contacts-developer {
     font-size: 0.7rem;
   }
   .h4-services,
-  .h4-designing {
+  .h4-designing,
+  .h4-contacts {
     font-size: 1.6rem;
   }
   .modal-box {
@@ -560,6 +560,10 @@ body {
     max-height: 84vh;
     padding: 2vh;
   }
+  .prev,
+  .next {
+    font-size: 10vw;
+  }
 }
 
 @media screen and (max-width: 768px) {
@@ -587,5 +591,9 @@ body {
   }
   .modal-box {
     max-width: 87vw;
+  }
+  .prev,
+  .next {
+    font-size: 20vw;
   }
 }
