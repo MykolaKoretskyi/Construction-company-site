@@ -134,6 +134,7 @@ body {
   text-align: center;
   font-size: 1.4rem;
   font-weight: 600;
+  padding: 0 5vw;
 }
 
 .slider-container {
@@ -588,7 +589,8 @@ body {
   .header-section {
     padding: 2vh 3%;
   }
-  .nav-item {
+  .nav-item,
+  .logo {
     padding: 0 0.4rem;
   }
   .main-inscription {
@@ -622,17 +624,25 @@ body {
 
 @media screen and (max-width: 480px), (max-height: 480px) {
   .inscription-section {
-    padding: 7vh 2vw 3vh 2vw;
+    padding: 7vh 4vw 3vh;
+  }
+  .main-inscription {
+    font-size: 1.4rem;
   }
   .inscription {
+    font-size: 1rem;
     padding-top: 4vh;
+  }
+  .h4-designing,
+  .h4-contacts {
+    font-size: 1.4rem;
   }
   .designing-inscription {
     padding: 3vh 5vw;
   }
-  .slider-container {
+  /* .slider-container {
     padding: 2vh 4%;
-  }
+  } */
   .service-article {
     max-width: 88vw;
   }
@@ -643,6 +653,12 @@ body {
   }
   .modal-box {
     max-width: 87vw;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .slider-container {
+    padding: 2vh 4%;
   }
   .prev,
   .next {

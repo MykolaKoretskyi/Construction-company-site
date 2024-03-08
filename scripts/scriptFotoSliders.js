@@ -130,7 +130,9 @@ function createSliderLinks(idArray, sliderLine) {
     newLink.style.justifyContent = "center";
     newLink.style.alignItems = "center";
     newLink.href = "#popup";
+    console.log("index: " + index);
     if (index == 1) {
+      console.log("YEP: ");
       newLink.id = "imageLink";
     }
     let newImage = document.createElement("img");

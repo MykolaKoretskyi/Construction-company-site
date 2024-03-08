@@ -43,11 +43,9 @@ body {
   color: var(--font-color);
   text-transform: uppercase;
 }
-
 .part-logo {
   color: var(--link);
 }
-
 .nav-item {
   text-decoration: none;
   padding: 0 1rem;
@@ -55,7 +53,7 @@ body {
   text-transform: uppercase;
 }
 
-.h4-service {
+.h4-services {
   font-size: 2.5rem;
   text-transform: uppercase;
   padding-bottom: 3vh;
@@ -223,6 +221,9 @@ body {
 }
 
 @media screen and (max-width: 1280px) {
+  .h4-services {
+    font-size: 1.8rem;
+  }
   .popup-content {
     padding: 5vh;
   }
@@ -232,7 +233,9 @@ body {
   body {
     font-size: 0.9rem;
   }
-
+  .h5-service {
+    font-size: 1rem;
+  }
   .popup-content {
     max-width: 80vw;
     max-height: 80vh;
@@ -242,13 +245,41 @@ body {
   .next {
     font-size: 10vw;
   }
+  .prev {
+    left: 5vw;
+  }
+
+  .next {
+    right: 5vw;
+  }
 }
 
 @media screen and (max-width: 768px) {
+  .h4-services {
+    font-size: 1.6rem;
+    line-height: 1.4;
+    word-spacing: 0.6rem;
+  }
+  .header-section {
+    padding: 2vh 3%;
+  }
+  .nav-item,
+  .logo {
+    padding: 0 0.4rem;
+  }
   .popup-content {
     max-width: 90vw;
     max-height: 90vh;
     padding: 6vh;
+  }
+  .slider-container {
+    padding: 2vh 3%;
+  }
+}
+
+@media screen and (max-width: 480px), (max-height: 480px) {
+  .p-service {
+    max-width: 88vw;
   }
 }
 
@@ -256,5 +287,8 @@ body {
   .prev,
   .next {
     font-size: 20vw;
+  }
+  .slider-container {
+    padding: 2vh 4%;
   }
 }
