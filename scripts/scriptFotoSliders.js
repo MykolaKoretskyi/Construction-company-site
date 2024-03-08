@@ -1,22 +1,3 @@
-// document.getElementById("audioPlayer").addEventListener("click", function () {
-//   var audio = document.getElementById("audioPlayer");
-//   audio.play();
-// });
-window.onload = function () {
-  var audio = document.getElementById("audioPlayer");
-  var isAudioPlayed = false;
-
-  function playAudio() {
-    audio
-      .play()
-      .then(() => {})
-      .catch((error) => {});
-    isAudioPlayed = true;
-  }
-
-  // Викликати playAudio при кліку та скролінгу
-  document.body.addEventListener("click", playAudio);
-};
 const designingSrcArray = [
   "./assets/services/min-designing-1.jpg",
   "./assets/services/min-designing-2.jpg",

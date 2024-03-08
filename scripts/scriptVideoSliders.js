@@ -112,8 +112,11 @@ async function createSliderLinks(idArray, sliderLine) {
     newLink.style.alignItems = "center";
     newLink.href = "#popup";
 
-    let newImage = document.createElement("img");
+    if (index == 1) {
+      newLink.id = "imageLink";
+    }
 
+    let newImage = document.createElement("img");
     newImage.src = thumbnailUrl;
     newImage.alt = "image";
 
@@ -292,8 +295,10 @@ document.querySelectorAll(".next").forEach(function (nextButton) {
 // Scrolls through the slides.
 function scrollSlider(direction, clickedElement) {
   // let scrollAmount = window.innerWidth / numbLinkVideoInRow;
-  let scrollAmount =
-    document.documentElement.scrollWidth * 0.99 * (1 / numbLinkVideoInRow);
+  let element = document.getElementById("imageLink");
+
+  let scrollAmount = element.getBoundingClientRect().width;
+  // document.documentElement.scrollWidth * 0.98 * (1 / numbLinkVideoInRow);
   let thisSlider = clickedElement.parentNode.querySelector(".slider");
   thisSlider.scrollTo({
     left: thisSlider.scrollLeft + direction * scrollAmount,
