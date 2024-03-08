@@ -36,7 +36,16 @@ body {
   justify-content: space-between;
   padding: 2vh 5%;
 }
-
+.logo {
+  font-weight: 600;
+  text-decoration: none;
+  padding: 0 1rem;
+  color: var(--font-color);
+  text-transform: uppercase;
+}
+.part-logo {
+  color: var(--link);
+}
 .nav-item {
   text-decoration: none;
   padding: 0 1rem;

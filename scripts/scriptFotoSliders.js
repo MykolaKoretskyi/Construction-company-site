@@ -130,7 +130,9 @@ function createSliderLinks(idArray, sliderLine) {
     newLink.style.justifyContent = "center";
     newLink.style.alignItems = "center";
     newLink.href = "#popup";
-
+    if (index == 1) {
+      newLink.id = "imageLink";
+    }
     let newImage = document.createElement("img");
 
     newImage.src = idArray[index];
@@ -272,8 +274,8 @@ document.querySelectorAll(".next").forEach(function (nextButton) {
 
 // Scrolls through the slides.
 function scrollSlider(direction, clickedElement) {
-  let scrollAmount =
-    document.documentElement.scrollWidth * 0.99 * (1 / numbLinkFotoInRow);
+  let element = document.getElementById("imageLink");
+  let scrollAmount = element.getBoundingClientRect().width;
   let thisSlider = clickedElement.parentNode.querySelector(".slider");
   thisSlider.scrollTo({
     left: thisSlider.scrollLeft + direction * scrollAmount,
