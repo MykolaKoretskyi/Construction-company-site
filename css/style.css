@@ -172,6 +172,9 @@ body {
   overflow-x: hidden;
   transition: all 0.8s ease 0s;
   z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .pop-up.open {
@@ -186,7 +189,7 @@ body {
 }
 
 .popup-body {
-  min-height: 100vh;
+  /* min-height: 100vh; */
   display: flex;
   align-items: center;
   justify-content: center;
@@ -576,9 +579,12 @@ body {
     max-width: 65vw;
   }
   .popup-content {
-    /* max-width: 84vw;
-    max-height: 84vh; */
     padding: 2vh;
+  }
+  .popup-close {
+    right: 0.8rem;
+    top: 0.4rem;
+    font-size: 1.8rem;
   }
   .prev,
   .next {
@@ -612,8 +618,6 @@ body {
     max-width: 75vw;
   }
   .popup-content {
-    /* max-width: 90vw;
-    max-height: 60vw;*/
     padding: 2vh;
   }
   .popup-video {
@@ -644,23 +648,14 @@ body {
   .designing-inscription {
     padding: 3vh 5vw;
   }
-  /* .slider-container {
-    padding: 2vh 4%;
-  } */
+
   .service-article {
     max-width: 88vw;
   }
   .popup-content {
-    /* max-width: 90vw; */
-    /* max-height: 100vw; */
     padding: 1vh;
   }
-  /* .iframe {
-  min-width: 72vw;
-  min-height: 68vh;
-  max-height: 82vw;
-  margin: 3%;
-} */
+
   .modal-box {
     max-width: 87vw;
   }
@@ -673,5 +668,16 @@ body {
   .prev,
   .next {
     font-size: 20vw;
+  }
+}
+
+@media screen and (max-width: 375px) {
+  .popup-video {
+    max-height: 90vw;
+  }
+  .popup-close {
+    left: 86%;
+    top: 0.3rem;
+    font-size: 1.8rem;
   }
 }
