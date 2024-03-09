@@ -186,7 +186,7 @@ body {
 }
 
 .popup-body {
-  /* min-height: 100%; */
+  min-height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -197,8 +197,8 @@ body {
 .popup-content {
   background-color: var(--popup-content-color);
   color: var(--popup-font-color);
-  max-width: 74vw;
-  height: auto;
+  /* max-width: 74vw; */
+  /*height: auto; */
   padding: 3vh;
   position: relative;
   z-index: 2;
@@ -221,8 +221,9 @@ body {
 }
 
 .iframe {
-  width: 72vw;
-  height: 64vh;
+  min-width: 72vw;
+  min-height: 68vh;
+  max-height: 82vw;
   margin: 3%;
 }
 
@@ -375,7 +376,7 @@ body {
 
 .modal-inscription {
   font-weight: 600;
-  padding: 1rem 1rem 0.5rem 1rem;
+  padding: 1rem 1.7rem 0.5rem;
 }
 
 .p-modal {
@@ -575,8 +576,8 @@ body {
     max-width: 65vw;
   }
   .popup-content {
-    max-width: 84vw;
-    max-height: 84vh;
+    /* max-width: 84vw;
+    max-height: 84vh; */
     padding: 2vh;
   }
   .prev,
@@ -611,9 +612,12 @@ body {
     max-width: 75vw;
   }
   .popup-content {
-    max-width: 90vw;
-    max-height: 90vh;
+    /* max-width: 90vw;
+    max-height: 60vw;*/
     padding: 2vh;
+  }
+  .popup-video {
+    max-height: 60vw;
   }
   .contacts-section {
     padding: 5%;
@@ -647,10 +651,16 @@ body {
     max-width: 88vw;
   }
   .popup-content {
-    max-width: 90vw;
+    /* max-width: 90vw; */
     /* max-height: 100vw; */
     padding: 1vh;
   }
+  /* .iframe {
+  min-width: 72vw;
+  min-height: 68vh;
+  max-height: 82vw;
+  margin: 3%;
+} */
   .modal-box {
     max-width: 87vw;
   }
