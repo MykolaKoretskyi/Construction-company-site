@@ -575,11 +575,22 @@
           </div>
         </span>
         <span class="span-button">
-          <button class="client-button">Надіслати</button>
+          <button onclick="sendEmail()" class="client-button">Надіслати</button>
         </span>
       </article>
     </section>
 
+    <script
+      type="text/javascript"
+      src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"
+    ></script>
+    <script type="text/javascript">
+      (function () {
+        emailjs.init({
+          publicKey: "vV6KRR9shpdmH7I0B",
+        });
+      })();
+    </script>
     <script src="scripts/scriptVideoSliders.js"></script>
     <script src="scripts/scriptTrim.js"></script>
     <script src="scripts/scriptAdaptability.js"></script>
