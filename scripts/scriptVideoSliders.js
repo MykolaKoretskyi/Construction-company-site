@@ -183,7 +183,9 @@ function setListenerPopup(popupLink) {
 
     let dots = document.querySelectorAll(".dot");
     dots[clickedElement.getAttribute("dataIndex")].classList.add("active");
+
     document.querySelector(".iframe").src = videoUrl;
+
     popupOpen(currentPopup);
     event.preventDefault();
   });
