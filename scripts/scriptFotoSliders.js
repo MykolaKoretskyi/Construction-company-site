@@ -131,9 +131,9 @@ function createSliderLinks(idArray, sliderLine) {
     newLink.style.alignItems = "center";
     newLink.href = "#popup";
 
-    if (index == 1) {
-      newLink.id = "imageLink";
-    }
+    // if (index == 1) {
+    //   newLink.id = "imageLink";
+    // }
     let newImage = document.createElement("img");
 
     newImage.src = idArray[index];
@@ -183,6 +183,7 @@ function setListenerPopup(popupLink) {
       .replace("min-", "");
 
     popupOpen(currentPopup);
+
     event.preventDefault();
   });
 }
@@ -277,16 +278,16 @@ document.querySelectorAll(".next").forEach(function (nextButton) {
 
 // Scrolls through the slides.
 function scrollSlider(direction, clickedElement) {
-  let element = document.getElementById("imageLink");
-  let scrollAmount = element.getBoundingClientRect().width;
   let thisSlider = clickedElement.parentNode.querySelector(".slider");
+  let element = thisSlider.querySelector(".slide");
+  let scrollAmount = element.getBoundingClientRect().width;
   let currentScrollLeft = thisSlider.scrollLeft;
   let newScrollLeft = currentScrollLeft + direction * scrollAmount;
   thisSlider.style.scrollBehavior = "smooth";
   thisSlider.scrollLeft = newScrollLeft;
 
   setTimeout(function () {
-    thisSlider.style.scrollBehavior = "auto";
+    thisSlider.style.scrollBehavior = "smooth";
   }, 500);
 }
 

@@ -306,7 +306,7 @@ function scrollSlider(direction, clickedElement) {
   thisSlider.scrollLeft = newScrollLeft;
 
   setTimeout(function () {
-    thisSlider.style.scrollBehavior = "auto";
+    thisSlider.style.scrollBehavior = "smooth";
   }, 500);
 }
 
