@@ -192,7 +192,7 @@ body {
   right: 2vw;
 }
 
-.pagination {
+.pagination-foto {
   display: flex;
   justify-content: center;
   margin-top: 2vh;
@@ -268,11 +268,7 @@ body {
     max-height: 98vh;
     padding: 6vh 0;
   }
-  .dot {
-    width: 0.4rem;
-    height: 0.4rem;
-    margin: 0 0.3rem;
-  }
+
   .slider-container {
     padding: 2vh 3%;
   }
@@ -303,5 +299,13 @@ body {
 
   .slider-container {
     padding: 2vh 4%;
+  }
+}
+
+@media screen and (max-width: 375px) {
+  .dot {
+    width: 0.4rem;
+    height: 0.4rem;
+    margin: 0 0.3rem;
   }
 }

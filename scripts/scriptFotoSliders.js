@@ -193,7 +193,6 @@ if (closeElements.length > 0) {
   closeElements.forEach(function (closeElement) {
     closeElement.addEventListener("click", function (event) {
       closePopup(closeElement);
-      removePagination(closeElement.closest(".pop-up"));
       event.preventDefault();
     });
   });
@@ -202,6 +201,7 @@ if (closeElements.length > 0) {
 function closePopup(closeElement) {
   document.body.style.overflow = "auto";
   closeElement.closest(".pop-up").classList.remove("open");
+  removePagination(closeElement.closest(".pop-up"));
 }
 
 // Opens a popup and sets a click listener,
@@ -213,7 +213,6 @@ function popupOpen(curentPopup) {
     curentPopup.addEventListener("click", function (event) {
       if (!event.target.closest(".popup-content")) {
         closePopup(curentPopup);
-        removePagination(curentPopup);
         event.preventDefault();
       }
     });
@@ -224,7 +223,7 @@ function createPaginationInPoup(thisSlider) {
   let slideElements = thisSlider.querySelectorAll(".slide");
   let srcFotoArray = [];
 
-  const paginationContainer = document.querySelector(".pagination");
+  const paginationContainer = document.querySelector(".pagination-foto");
 
   slideElements.forEach(function (slideElement, index) {
     let imgElement = slideElement.querySelector("img");
@@ -232,7 +231,7 @@ function createPaginationInPoup(thisSlider) {
     srcFotoArray.push(dataFotoSrc);
     const dot = document.createElement("div");
     dot.classList.add("dot");
-    dot.setAttribute("dataIndex", index);
+    // dot.setAttribute("dataIndex", index);
     paginationContainer.appendChild(dot);
     dot.addEventListener("click", function () {
       openThisFoto(srcFotoArray, index);
@@ -246,10 +245,16 @@ function openThisFoto(srcFotoArray, index) {
   let imageSrc = srcFotoArray[index].replace("min-", "");
   document.querySelector(".imgPopup").src = imageSrc;
   let dots = document.querySelectorAll(".dot");
-  dots.forEach(function (dot, i) {
-    dot.classList.remove("active");
-    dot.classList.toggle("active", i === index);
-  });
+  document
+    .querySelector(".pagination-foto")
+    .querySelector(".active")
+    .classList.remove("active");
+  dots[index].classList.add("active");
+
+  // dots.forEach(function (dot, i) {
+  //   dot.classList.remove("active");
+  //   dot.classList.toggle("active", i === index);
+  // });
 }
 
 // Removes pagination elements when closing the popup.
