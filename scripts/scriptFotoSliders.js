@@ -257,7 +257,7 @@ function scrollSlider(direction, clickedElement) {
 
   thisSlider.scrollTo({
     left: thisSlider.scrollLeft + scrollAmount,
-    behavior: "auto",
+    behavior: "smooth",
   });
 }
 

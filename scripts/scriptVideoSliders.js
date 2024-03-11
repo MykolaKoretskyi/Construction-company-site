@@ -112,11 +112,8 @@ async function createSliderLinks(idArray, sliderLine) {
     newLink.style.alignItems = "center";
     newLink.href = "#popup";
 
-    if (index == 1) {
-      newLink.id = "imageLink";
-    }
-
     let newImage = document.createElement("img");
+    newImage.classList.add("slide-img");
     newImage.src = thumbnailUrl;
     newImage.alt = "image";
 
@@ -128,19 +125,8 @@ async function createSliderLinks(idArray, sliderLine) {
       scrollWidth * 0.98 * (1 / numbLinkVideoInRow - 0.02) + "px";
     newImage.style.maxHeight =
       scrollWidth * 0.98 * (1 / numbLinkVideoInRow - 0.02) + "px";
-
     newImage.setAttribute("dataVideoId", idArray[index]);
     newImage.setAttribute("dataIndex", index);
-
-    newImage.style.transition = "transform 0.3s ease-in-out";
-
-    newImage.addEventListener("mouseenter", function () {
-      newImage.style.transform = "scale(1.1)";
-    });
-
-    newImage.addEventListener("mouseleave", function () {
-      newImage.style.transform = "scale(1)";
-    });
 
     newLink.appendChild(newImage);
     sliderLine.appendChild(newLink);
@@ -297,17 +283,14 @@ document.querySelectorAll(".next").forEach(function (nextButton) {
 
 // Scrolls through the slides.
 function scrollSlider(direction, clickedElement) {
-  let element = document.getElementById("imageLink");
-  let scrollAmount = element.getBoundingClientRect().width;
   let thisSlider = clickedElement.parentNode.querySelector(".slider");
-  let currentScrollLeft = thisSlider.scrollLeft;
-  let newScrollLeft = currentScrollLeft + direction * scrollAmount;
-  thisSlider.style.scrollBehavior = "smooth";
-  thisSlider.scrollLeft = newScrollLeft;
+  let element = thisSlider.querySelector(".slide");
+  let scrollAmount = element.getBoundingClientRect().width * direction;
 
-  setTimeout(function () {
-    thisSlider.style.scrollBehavior = "smooth";
-  }, 500);
+  thisSlider.scrollTo({
+    left: thisSlider.scrollLeft + scrollAmount,
+    behavior: "smooth",
+  });
 }
 
 // Closes the popup when pressing "Esc" on the keyboard.

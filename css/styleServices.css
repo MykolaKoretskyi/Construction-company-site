@@ -73,7 +73,6 @@ body {
 }
 
 /* Styles for foto sliders */
-
 .h6-slider {
   text-align: center;
   font-size: 1.2rem;
@@ -114,6 +113,7 @@ body {
   transform: scale(1.1);
   opacity: 0.9;
 }
+
 .pop-up {
   position: fixed;
   width: 100%;
@@ -235,6 +235,9 @@ body {
     max-width: 90vw;
     max-height: 90vh;
     padding: 6vh 0;
+  }
+  .slide-img:hover {
+    transform: scale(1);
   }
 }
 @media screen and (max-width: 914px) {
