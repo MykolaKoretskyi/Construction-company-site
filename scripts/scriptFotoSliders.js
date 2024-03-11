@@ -250,18 +250,7 @@ function createPaginationInPoup(thisSlider) {
 //   });
 // }
 function openThisFoto(srcFotoArray, index) {
-  // Створити новий об'єкт Image
-  var img = new Image();
-
-  // Обробник події завантаження
-  img.onload = function () {
-    // Встановити новий src після завантаження
-    document.querySelector(".imgPopup").src = img.src;
-  };
-
-  // Запустити завантаження нового зображення
-  img.src = srcFotoArray[index];
-  // document.querySelector(".imgPopup").src = srcFotoArray[index];
+  document.querySelector(".imgPopup").src = srcFotoArray[index];
   let dots = document.querySelectorAll(".dot");
 
   dots.forEach(function (dot, i) {
