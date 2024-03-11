@@ -131,12 +131,10 @@ function createSliderLinks(idArray, sliderLine) {
     newLink.style.alignItems = "center";
     newLink.href = "#popup";
 
-    // if (index == 1) {
-    //   newLink.id = "imageLink";
-    // }
     let newImage = document.createElement("img");
 
     newImage.src = idArray[index];
+    newImage.classList.add("slide-img");
     newImage.alt = "image";
     newImage.style.margin = "1vw";
 
@@ -147,19 +145,7 @@ function createSliderLinks(idArray, sliderLine) {
       scrollWidth * 0.98 * (1 / numbLinkFotoInRow - 0.02) + "px";
     newImage.style.maxHeight =
       scrollWidth * 0.98 * (1 / numbLinkFotoInRow - 0.02) + "px";
-
     newImage.setAttribute("dataIndex", index);
-
-    newImage.style.transition = "transform 0.2s ease-in-out";
-
-    newImage.addEventListener("mouseenter", function () {
-      newImage.style.transform = "scale(1.1)";
-    });
-
-    newImage.addEventListener("mouseleave", function () {
-      newImage.style.transform = "scale(1)";
-    });
-
     newLink.appendChild(newImage);
     sliderLine.appendChild(newLink);
 
@@ -203,9 +189,10 @@ if (closeElements.length > 0) {
 
 function closePopup(closeElement) {
   document.body.style.overflow = "auto";
-  closeElement.closest(".pop-up").classList.remove("open");
-  removePagination(closeElement.closest(".pop-up"));
-  closeElement.parentNode.querySelector(".imgPopup").src = "";
+  let popup = closeElement.closest(".pop-up");
+  popup.classList.remove("open");
+  removePagination(popup);
+  popup.querySelector(".imgPopup").src = "";
 }
 
 // Opens a popup and sets a click listener,
@@ -262,33 +249,16 @@ function removePagination(curentPopup) {
   });
 }
 
-// Scrolls the slides back one.
-document.querySelectorAll(".prev").forEach(function (prevButton) {
-  prevButton.addEventListener("click", function (event) {
-    scrollSlider(-1, event.target);
-  });
-});
-
-// Scrolls the slides forward one.
-document.querySelectorAll(".next").forEach(function (nextButton) {
-  nextButton.addEventListener("click", function (event) {
-    scrollSlider(1, event.target);
-  });
-});
-
 // Scrolls through the slides.
 function scrollSlider(direction, clickedElement) {
   let thisSlider = clickedElement.parentNode.querySelector(".slider");
   let element = thisSlider.querySelector(".slide");
-  let scrollAmount = element.getBoundingClientRect().width;
-  let currentScrollLeft = thisSlider.scrollLeft;
-  let newScrollLeft = currentScrollLeft + direction * scrollAmount;
-  thisSlider.style.scrollBehavior = "smooth";
-  thisSlider.scrollLeft = newScrollLeft;
+  let scrollAmount = element.getBoundingClientRect().width * direction;
 
-  setTimeout(function () {
-    thisSlider.style.scrollBehavior = "smooth";
-  }, 500);
+  thisSlider.scrollTo({
+    left: thisSlider.scrollLeft + scrollAmount,
+    behavior: "auto",
+  });
 }
 
 // Closes the popup when pressing "Esc" on the keyboard.

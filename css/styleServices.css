@@ -98,7 +98,6 @@ body {
   margin: 0;
   padding: 0;
   overflow-x: hidden;
-  transition: transform 0.3s ease;
 }
 
 .slide {
@@ -106,6 +105,15 @@ body {
   padding: 0;
 }
 
+.slide-img {
+  opacity: 1;
+  transition: transform 0.2s ease-in-out, opacity 0.2s ease-in-out;
+}
+
+.slide-img:hover {
+  transform: scale(1.1);
+  opacity: 0.9;
+}
 .pop-up {
   position: fixed;
   width: 100%;
