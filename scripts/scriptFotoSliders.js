@@ -240,8 +240,28 @@ function createPaginationInPoup(thisSlider) {
 
 // Opens the video pointed to by the user on
 // the pagination ribbon without closing the popup.
+// function openThisFoto(srcFotoArray, index) {
+//   document.querySelector(".imgPopup").src = srcFotoArray[index];
+//   let dots = document.querySelectorAll(".dot");
+
+//   dots.forEach(function (dot, i) {
+//     dot.classList.remove("active");
+//     dot.classList.toggle("active", i === index);
+//   });
+// }
 function openThisFoto(srcFotoArray, index) {
-  document.querySelector(".imgPopup").src = srcFotoArray[index];
+  // Створити новий об'єкт Image
+  var img = new Image();
+
+  // Обробник події завантаження
+  img.onload = function () {
+    // Встановити новий src після завантаження
+    document.querySelector(".imgPopup").src = img.src;
+  };
+
+  // Запустити завантаження нового зображення
+  img.src = srcFotoArray[index];
+  // document.querySelector(".imgPopup").src = srcFotoArray[index];
   let dots = document.querySelectorAll(".dot");
 
   dots.forEach(function (dot, i) {

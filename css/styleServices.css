@@ -271,6 +271,7 @@ body {
 
   .slider-container {
     padding: 2vh 3%;
+    max-width: 92%;
   }
 }
 
@@ -299,6 +300,7 @@ body {
 
   .slider-container {
     padding: 2vh 4%;
+    max-width: 90%;
   }
 }
 
