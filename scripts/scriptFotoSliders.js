@@ -228,10 +228,9 @@ function createPaginationInPoup(thisSlider) {
   slideElements.forEach(function (slideElement, index) {
     let imgElement = slideElement.querySelector("img");
     let dataFotoSrc = imgElement.getAttribute("src");
-    srcFotoArray.push(dataFotoSrc);
+    srcFotoArray.push(dataFotoSrc.replace("min-", ""));
     const dot = document.createElement("div");
     dot.classList.add("dot");
-    // dot.setAttribute("dataIndex", index);
     paginationContainer.appendChild(dot);
     dot.addEventListener("click", function () {
       openThisFoto(srcFotoArray, index);
@@ -242,19 +241,13 @@ function createPaginationInPoup(thisSlider) {
 // Opens the video pointed to by the user on
 // the pagination ribbon without closing the popup.
 function openThisFoto(srcFotoArray, index) {
-  let imageSrc = srcFotoArray[index].replace("min-", "");
-  document.querySelector(".imgPopup").src = imageSrc;
+  document.querySelector(".imgPopup").src = srcFotoArray[index];
   let dots = document.querySelectorAll(".dot");
-  document
-    .querySelector(".pagination-foto")
-    .querySelector(".active")
-    .classList.remove("active");
-  dots[index].classList.add("active");
 
-  // dots.forEach(function (dot, i) {
-  //   dot.classList.remove("active");
-  //   dot.classList.toggle("active", i === index);
-  // });
+  dots.forEach(function (dot, i) {
+    dot.classList.remove("active");
+    dot.classList.toggle("active", i === index);
+  });
 }
 
 // Removes pagination elements when closing the popup.

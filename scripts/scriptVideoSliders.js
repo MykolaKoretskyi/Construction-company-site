@@ -243,8 +243,6 @@ function createPaginationInPoup(thisSlider) {
 
     const dot = document.createElement("div");
     dot.classList.add("dot");
-    dot.setAttribute("dataIndex", index);
-
     paginationContainer.appendChild(dot);
 
     dot.addEventListener("click", function () {
@@ -264,8 +262,8 @@ function openThisVideo(idVideoArray, index) {
     "?autoplay=1&loop=1&autopause=0";
 
   document.querySelector(".iframe").src = videoUrl;
-
   let dots = document.querySelectorAll(".dot");
+
   dots.forEach(function (dot, i) {
     dot.classList.remove("active");
     dot.classList.toggle("active", i === index);
