@@ -121,6 +121,9 @@ async function createSliderLinks(idArray, sliderLine) {
     newImage.alt = "image";
 
     newImage.style.margin = "1vw";
+    if (numbLinkVideoInRow <= 2) {
+      newImage.style.margin = "1.5vw";
+    }
     newImage.style.width =
       scrollWidth * 0.98 * (1 / numbLinkVideoInRow - 0.02) + "px";
     newImage.style.maxHeight =
@@ -294,16 +297,17 @@ document.querySelectorAll(".next").forEach(function (nextButton) {
 
 // Scrolls through the slides.
 function scrollSlider(direction, clickedElement) {
-  // let scrollAmount = window.innerWidth / numbLinkVideoInRow;
   let element = document.getElementById("imageLink");
-
   let scrollAmount = element.getBoundingClientRect().width;
-  // document.documentElement.scrollWidth * 0.98 * (1 / numbLinkVideoInRow);
   let thisSlider = clickedElement.parentNode.querySelector(".slider");
-  thisSlider.scrollTo({
-    left: thisSlider.scrollLeft + direction * scrollAmount,
-    behavior: "smooth",
-  });
+  let currentScrollLeft = thisSlider.scrollLeft;
+  let newScrollLeft = currentScrollLeft + direction * scrollAmount;
+  thisSlider.style.scrollBehavior = "smooth";
+  thisSlider.scrollLeft = newScrollLeft;
+
+  setTimeout(function () {
+    thisSlider.style.scrollBehavior = "auto";
+  }, 500);
 }
 
 // Closes the popup when pressing "Esc" on the keyboard.

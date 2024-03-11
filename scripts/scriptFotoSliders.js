@@ -130,17 +130,19 @@ function createSliderLinks(idArray, sliderLine) {
     newLink.style.justifyContent = "center";
     newLink.style.alignItems = "center";
     newLink.href = "#popup";
-    console.log("index: " + index);
+
     if (index == 1) {
-      console.log("YEP: ");
       newLink.id = "imageLink";
     }
     let newImage = document.createElement("img");
 
     newImage.src = idArray[index];
     newImage.alt = "image";
-
     newImage.style.margin = "1vw";
+
+    if (numbLinkFotoInRow <= 2) {
+      newImage.style.margin = "1.5vw";
+    }
     newImage.style.width =
       scrollWidth * 0.98 * (1 / numbLinkFotoInRow - 0.02) + "px";
     newImage.style.maxHeight =
@@ -239,16 +241,7 @@ function createPaginationInPoup(thisSlider) {
 }
 
 // Opens the video pointed to by the user on
-// the pagination ribbon without closing the popup.
-// function openThisFoto(srcFotoArray, index) {
-//   document.querySelector(".imgPopup").src = srcFotoArray[index];
-//   let dots = document.querySelectorAll(".dot");
-
-//   dots.forEach(function (dot, i) {
-//     dot.classList.remove("active");
-//     dot.classList.toggle("active", i === index);
-//   });
-// }
+// the pagination ribbon without closing the popup
 function openThisFoto(srcFotoArray, index) {
   document.querySelector(".imgPopup").src = srcFotoArray[index];
   let dots = document.querySelectorAll(".dot");
@@ -286,10 +279,14 @@ function scrollSlider(direction, clickedElement) {
   let element = document.getElementById("imageLink");
   let scrollAmount = element.getBoundingClientRect().width;
   let thisSlider = clickedElement.parentNode.querySelector(".slider");
-  thisSlider.scrollTo({
-    left: thisSlider.scrollLeft + direction * scrollAmount,
-    behavior: "smooth",
-  });
+  let currentScrollLeft = thisSlider.scrollLeft;
+  let newScrollLeft = currentScrollLeft + direction * scrollAmount;
+  thisSlider.style.scrollBehavior = "smooth";
+  thisSlider.scrollLeft = newScrollLeft;
+
+  setTimeout(function () {
+    thisSlider.style.scrollBehavior = "auto";
+  }, 500);
 }
 
 // Closes the popup when pressing "Esc" on the keyboard.
