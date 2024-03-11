@@ -1,25 +1,31 @@
-<h2>HTML page</h2>
+<h1>Construction-company-site</h1>
 
-<h3>Description:</h3>
+<h2>Description:</h2>
 
-<p>This site is currently under development<p/>
+<p>This is a demo version of the design and construction company's website<p/>
 
 <p>Link: https://mykolakoretskyi.github.io/Construction-company-site/<p/>
 
-<!--<h3>Screenshots</h3>-->
+<h2>Technologies Used</h2>
 
-<!--<h4>Slider</h4>-->
+<ul>
+<li>HTML</li>
+<li>CSS</li>
+<li>JavaScript</li>
+</ul>
 
-<!--![Video slider](./assets/screenshot-1.jpg)-->
+<h2>Screenshots</h2>
 
-<!--<h4>Pop-up window with video pagination</h4>-->
+<h3>Main page</h3>
 
-<!--![Popup](./assets/screenshot-2.jpg)-->
+![Main page](./assets/screenshots/screenshot-1.jpg)
 
-<!--<h4>Display a thumbnail if there is no thumbnail for this video</h4>-->
+<h3>Modal window with pagination</h3>
 
-<!--![Video slider](./assets/screenshot-3.jpg)-->
+![Modal window](./assets/screenshots/screenshot-2.jpg)
 
-<!--<h4>This video does not exist</h4>-->
+<h3>This site is adapted for viewing on small devices</h3>
 
-<!--![Video slider](./assets/screenshot-4.jpg)-->
+![Adaptation](./assets/screenshots/screenshot-3.jpg)
+
+

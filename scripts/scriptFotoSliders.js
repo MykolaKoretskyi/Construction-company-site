@@ -204,6 +204,7 @@ function closePopup(closeElement) {
   document.body.style.overflow = "auto";
   closeElement.closest(".pop-up").classList.remove("open");
   removePagination(closeElement.closest(".pop-up"));
+  closeElement.parentNode.querySelector(".imgPopup").src = "";
 }
 
 // Opens a popup and sets a click listener,
