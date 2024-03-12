@@ -132,15 +132,10 @@ function createSliderLinks(idArray, sliderLine) {
     newLink.href = "#popup";
 
     let newImage = document.createElement("img");
-
     newImage.src = idArray[index];
     newImage.classList.add("slide-img");
     newImage.alt = "image";
     newImage.style.margin = "1vw";
-
-    if (numbLinkFotoInRow <= 2) {
-      newImage.style.margin = "1.5vw";
-    }
     newImage.style.width =
       scrollWidth * 0.98 * (1 / numbLinkFotoInRow - 0.02) + "px";
     newImage.style.maxHeight =

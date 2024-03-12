@@ -116,11 +116,7 @@ async function createSliderLinks(idArray, sliderLine) {
     newImage.classList.add("slide-img");
     newImage.src = thumbnailUrl;
     newImage.alt = "image";
-
     newImage.style.margin = "1vw";
-    if (numbLinkVideoInRow <= 2) {
-      newImage.style.margin = "1.5vw";
-    }
     newImage.style.width =
       scrollWidth * 0.98 * (1 / numbLinkVideoInRow - 0.02) + "px";
     newImage.style.maxHeight =
