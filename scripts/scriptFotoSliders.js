@@ -154,7 +154,6 @@ function setListenerPopup(popupLink) {
     let popupName = popupLink.getAttribute("href").replace("#", "");
     let currentPopup = document.getElementById(popupName);
     let clickedElement = event.target;
-
     createPaginationInPoup(clickedElement.closest(".slider"));
 
     let dots = document.querySelectorAll(".dot");
@@ -188,6 +187,12 @@ function closePopup(closeElement) {
   popup.classList.remove("open");
   removePagination(popup);
   popup.querySelector(".imgPopup").src = "";
+
+  const clickListener = closeElement.clickListen;
+  if (clickListener) {
+    closeElement.removeEventListener("click", clickListener);
+    delete closeElement.clickListen;
+  }
 }
 
 // Opens a popup and sets a click listener,
@@ -196,19 +201,21 @@ function popupOpen(curentPopup) {
   if (curentPopup) {
     document.body.style.overflow = "hidden";
     curentPopup.classList.add("open");
-    curentPopup.addEventListener("click", function (event) {
+    const clickListener = function (event) {
       if (!event.target.closest(".popup-content")) {
         closePopup(curentPopup);
         event.preventDefault();
+        return;
       }
-    });
+    };
+    curentPopup.addEventListener("click", clickListener);
+    curentPopup.clickListen = clickListener;
   }
 }
 
 function createPaginationInPoup(thisSlider) {
   let slideElements = thisSlider.querySelectorAll(".slide");
   let srcFotoArray = [];
-
   const paginationContainer = document.querySelector(".pagination-foto");
 
   slideElements.forEach(function (slideElement, index) {
@@ -218,9 +225,13 @@ function createPaginationInPoup(thisSlider) {
     const dot = document.createElement("div");
     dot.classList.add("dot");
     paginationContainer.appendChild(dot);
-    dot.addEventListener("click", function () {
+
+    const dotClickListener = function () {
       openThisFoto(srcFotoArray, index);
-    });
+    };
+    dot.addEventListener("click", dotClickListener);
+
+    dot.clickListen = dotClickListener;
   });
 }
 
@@ -241,6 +252,12 @@ function removePagination(curentPopup) {
   let dots = curentPopup.querySelectorAll(".dot");
   dots.forEach(function (dot) {
     dot.remove();
+
+    const dotClickListener = dot.clickListen;
+    if (dotClickListener) {
+      dot.removeEventListener("click", dotClickListener);
+      delete dot.clickListen;
+    }
   });
 }
 
@@ -249,7 +266,6 @@ function scrollSlider(direction, clickedElement) {
   let thisSlider = clickedElement.parentNode.querySelector(".slider");
   let element = thisSlider.querySelector(".slide");
   let scrollAmount = element.getBoundingClientRect().width * direction;
-
   thisSlider.scrollTo({
     left: thisSlider.scrollLeft + scrollAmount,
     behavior: "smooth",
