@@ -230,8 +230,6 @@ function createPaginationInPoup(thisSlider) {
       openThisFoto(srcFotoArray, index);
     };
     dot.addEventListener("click", dotClickListener);
-
-    dot.clickListen = dotClickListener;
   });
 }
 
@@ -252,12 +250,6 @@ function removePagination(curentPopup) {
   let dots = curentPopup.querySelectorAll(".dot");
   dots.forEach(function (dot) {
     dot.remove();
-
-    const dotClickListener = dot.clickListen;
-    if (dotClickListener) {
-      dot.removeEventListener("click", dotClickListener);
-      delete dot.clickListen;
-    }
   });
 }
 
