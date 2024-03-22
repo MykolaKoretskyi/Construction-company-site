@@ -54,12 +54,6 @@ body {
   text-transform: uppercase;
 }
 
-/* .nav-button {
-  padding: 0.5rem;
-  color: var(--popup-font-color);
-  background-color: var(--grey-color);
-} */
-
 .inscription-section {
   padding: 12vh 2vw 3vh 2vw;
   text-align: center;
@@ -198,7 +192,6 @@ body {
 }
 
 .popup-body {
-  /* min-height: 100vh; */
   display: flex;
   align-items: center;
   justify-content: center;
@@ -209,12 +202,9 @@ body {
 .popup-content {
   background-color: var(--popup-content-color);
   color: var(--popup-font-color);
-  /* max-width: 74vw; */
-  /*height: auto; */
   padding: 3vh;
   position: relative;
   z-index: 2;
-  /* overflow-y: auto; */
 }
 
 .popup-close {
@@ -365,6 +355,7 @@ body {
   opacity: 0;
   visibility: hidden;
   transition: opacity 0.3s ease;
+  z-index: 2;
 }
 
 .modal-box {
@@ -372,6 +363,7 @@ body {
   overflow-y: auto;
   text-align: start;
   background-color: var(--service-background);
+  z-index: 3;
 }
 
 .container-close {
